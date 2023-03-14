@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+
+public class Dialogue
+{
+    public string speaker;          // Who is currently speaking.
+    public string[] expression;     // Expressions of each character.
+
+    [TextArea(3,10)]
+    public string[] sentences;      // All sentences in current conversation set before player makes a choice.
+
+    public string[] choices;        // Text for choices to be displayed.
+    public GameObject[] outcomes;   // Convo Catalogs for conversations following choice.
+
+    public bool sceneSwitch;        // Does the choice need to switch Scene?
+    public int[] sceneIndex;        // What is the SceneIndex from Build.
+
+    public bool changeAffinity;     // Does this choice need to affect affinity?
+    public string character;        // Which character does this affect?
+    public int[] affinityDelta;     // How much does affinity change? Need to combine this with character string and parse in Game Manager.
+}
