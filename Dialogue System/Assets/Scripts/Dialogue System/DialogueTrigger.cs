@@ -18,6 +18,10 @@ public class DialogueTrigger : MonoBehaviour
     void Awake()
     {
         // Grab choices + choices text to be able to control.
+        choices = new GameObject[3];
+        choicesText = new GameObject[3];
+        outcomes = new GameObject[3];
+
         for(int i = 0; i < 3; i++)
         {
             choices[i] = GameObject.Find("Choice " + i);

@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     public int[] affinity;      // What is the player's current affinity to that character.
     public int nextScene; 
     private int currentScene;
-    public ChoiceMaker[] choiceButtons;
+    private ChoiceMaker[] choiceButtons;
 
     // Update the player's affinity to a character.
     // Currently each choice can only affect the affinity of one character. However a choice should be able to affect multiple.
@@ -62,6 +62,21 @@ public class GameManager : MonoBehaviour
                 affinity[i] += affinityDelta;
             }
         }
+    }
+
+    // Return the player's affinity to a character.
+    public int GetAffinity(string chara)
+    {
+        for (int i = 0; i < character.Length; i++)
+        {
+            if(chara == character[i])
+            {
+                return affinity[i];
+            }
+        }
+
+        // If you see this value, you messed up.
+        return 9000;
     }
 
     public void LoadSceneSequence(int sceneIndex)
