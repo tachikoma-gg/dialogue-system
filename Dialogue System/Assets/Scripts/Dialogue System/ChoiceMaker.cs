@@ -13,7 +13,6 @@ public class ChoiceMaker : MonoBehaviour
 
     public void LoadDialogueTrigger()
     {
-        Debug.Log("Load Dialogue Triggers");
         dialogueTrigger = null;
         dialogueTrigger = GameObject.Find("Convo Catalog").GetComponent<DialogueTrigger>();
     }

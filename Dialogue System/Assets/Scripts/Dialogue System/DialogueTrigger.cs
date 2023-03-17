@@ -34,7 +34,6 @@ public class DialogueTrigger : MonoBehaviour
         // Dialogue Trigger load itself into ChoiceMakers
         for(int i = 0; i < 3; i++)
         {
-            Debug.Log("Call Load Dialogue Trigger method in Choice " + i);
             GameObject.Find("Choice " + i).GetComponent<ChoiceMaker>().LoadDialogueTrigger();
         }
     }
@@ -100,7 +99,6 @@ public class DialogueTrigger : MonoBehaviour
 
             charaLoader.PurgeCharacters();
             FindObjectOfType<GameManager>().LoadSceneSequence(dialogue.sceneIndex[choice]);
-            Debug.Log("Scene Index " + dialogue.sceneIndex[choice] + " Sent.");
         }
     }
 }
