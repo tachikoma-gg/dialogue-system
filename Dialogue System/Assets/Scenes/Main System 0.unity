@@ -1428,7 +1428,8 @@ MonoBehaviour:
   - Character 2
   - Character 3
   - Character 4
-  affinity: 0000000000000000000000000000000000000000
+  - Character 5
+  affinity: 000000000000000000000000000000000000000000000000
   nextScene: 0
 --- !u!4 &1349421890
 Transform:

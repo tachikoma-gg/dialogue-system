@@ -11,14 +11,14 @@ public class CharacterManager : MonoBehaviour
     public Animator[] charaAnim;            // Animators of characters active in the scene.
     private Animator charaSpeaking;         // Animator of character that is currently speaking.
 
-    private string[] charaExpress;          // Character name + Expression. Every other line.
+    // private string[] charaExpress;          // Character name + Expression. Every other line.
     // private string[] expression;            // Expressions?
     // Should dictionaries be used instead? How to access data from dictionaries?
 
     public void SetSpeaker(string charaName)
     {
         // Set private array size for expressions method.
-        charaExpress = new string[charaActive.Length];
+        // charaExpress = new string[charaActive.Length];
         // expression = new string[charaActive.Length];
 
         // Unset all speakers.

@@ -78,7 +78,7 @@ public class DialogueTrigger : MonoBehaviour
         // Does choices affect character afinity?
         if(dialogue.changeAffinity)
         {
-            FindObjectOfType<GameManager>().UpdateAffinity(dialogue.character, dialogue.affinityDelta[choice]);
+            FindObjectOfType<GameManager>().UpdateAffinity(dialogue.charaAffin[choice]);
         }
 
         // Load next Conversation, and start.

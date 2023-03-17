@@ -19,6 +19,5 @@ public class Dialogue
     public int[] sceneIndex;        // What is the SceneIndex from Build.
 
     public bool changeAffinity;     // Does this choice need to affect affinity?
-    public string character;        // Which character does this affect?
-    public int[] affinityDelta;     // How much does affinity change? Need to combine this with character string and parse in Game Manager.
+    public string[] charaAffin;     // Which characters does this affect? How much does their Affinity change by?
 }
