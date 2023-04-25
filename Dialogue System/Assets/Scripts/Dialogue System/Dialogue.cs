@@ -15,9 +15,6 @@ public class Dialogue
     public string[] choices;        // Text for choices to be displayed.
     public GameObject[] outcomes;   // Convo Catalogs for conversations following choice.
 
-    public bool sceneSwitch;        // Does the choice need to switch Scene?
-    public int[] sceneIndex;        // What is the SceneIndex from Build.
-
     public bool changeAffinity;     // Does this choice need to affect affinity?
     public string[] charaAffin;     // Which characters does this affect? How much does their Affinity change by?
 }

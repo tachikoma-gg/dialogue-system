@@ -65,10 +65,12 @@ public class DialogueTrigger : MonoBehaviour
         {
             choices[i].gameObject.SetActive(true);
             choicesText[i].gameObject.GetComponent<Text>().text = dialogue.choices[i];
+            /*
             if(!dialogue.sceneSwitch)
             {
                 outcomes[i] = dialogue.outcomes[i];
             }
+            */
         }
     }
 
@@ -82,13 +84,16 @@ public class DialogueTrigger : MonoBehaviour
         }
 
         // Load next Conversation, and start.
+        /*
         if(!dialogue.sceneSwitch)
         {
             convo = outcomes[choice];
             StartConvo();
         }
+        */
 
         // Load next Scene
+        /*
         else if (dialogue.sceneSwitch)
         {
             // Activate Choices Buttons before swapping scenes for next scene to be able to grab.
@@ -100,5 +105,6 @@ public class DialogueTrigger : MonoBehaviour
             charaLoader.PurgeCharacters();
             FindObjectOfType<GameManager>().LoadSceneSequence(dialogue.sceneIndex[choice]);
         }
+        */
     }
 }
