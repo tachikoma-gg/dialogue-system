@@ -43,8 +43,6 @@ public class CharacterManager : MonoBehaviour
 
         for(int i = 0; i < charaPort.Length; i++)
         {
-            
-
             // Populate chracter name list.
             // Populate expressions list.
 

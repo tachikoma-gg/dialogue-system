@@ -24,7 +24,8 @@ public class SceneLoader : MonoBehaviour
     public void ExcecuteScene(int scene)
     {
         // Clear characters in current scene to make room for characters in next scene.
-        // charaLoader.PurgeCharacters();  // Move this to Character Loader.
+        CharacterLoader charaLoader = FindObjectOfType<CharacterLoader>().GetComponent<CharacterLoader>();
+        charaLoader.PurgeCharacters();  // Move this to Character Loader.
 
         // Load scene from Game Manager.
         FindObjectOfType<GameManager>().LoadSceneSequence(scene);

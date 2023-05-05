@@ -59,11 +59,11 @@ public class GameManager : MonoBehaviour
 
     public void UpdateAffinity(string charaAffin) // Don't forget to change string to string[] in Dialogue.cs
     {
-        Debug.Log(charaAffin + " received by Game Manager. UpdateAffinity() triggered.");
+        // Debug.Log(charaAffin + " received by Game Manager. UpdateAffinity() triggered.");
 
         string[] affinityRaw = charaAffin.Split(char.Parse("_"));     // Splits all input into array. Can contain multiple charactes/affinities.
 
-        Debug.Log(affinityRaw.Length + " items in affinityRaw.");
+        // Debug.Log(affinityRaw.Length + " items in affinityRaw.");
 
         for(int j = 0; j < affinityRaw.Length; j++)
         {
@@ -71,15 +71,14 @@ public class GameManager : MonoBehaviour
             {
                 if(affinityRaw[j] == character[k])
                 {
-                    Debug.Log("Change " + affinityRaw[j] + "'s affinity by " + affinityRaw[j+1]);
+                    // Debug.Log("Change " + affinityRaw[j] + "'s affinity by " + affinityRaw[j+1]);
                     j += 1;
                     affinity[k] += int.Parse(affinityRaw[j]);
-                    Debug.Log(character[k] + "'s affinity is now " + affinity[k]);
+                    // Debug.Log(character[k] + "'s affinity is now " + affinity[k]);
                 }
             }
         }
     }
-    
     
     /*
     public void UpdateAffinity(string chara, int affinityDelta)

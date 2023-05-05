@@ -13,8 +13,4 @@ public class Dialogue
     public string[] sentences;      // All sentences in current conversation set before player makes a choice.
 
     public string[] choices;        // Text for choices to be displayed.
-    public GameObject[] outcomes;   // Convo Catalogs for conversations following choice.
-
-    public bool changeAffinity;     // Does this choice need to affect affinity?
-    public string[] charaAffin;     // Which characters does this affect? How much does their Affinity change by?
 }
