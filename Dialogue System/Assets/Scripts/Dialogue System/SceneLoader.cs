@@ -8,26 +8,19 @@ public class SceneLoader : MonoBehaviour
     private DialogueTrigger dialogueTrigger;
     public int[] sceneIndex;
 
-    public delegate void LoadScene(int scene);
-    LoadScene loadScene;
-
     void Awake()
     {
         dialogueTrigger = FindObjectOfType<DialogueTrigger>();      // Set Dialogue Trigger;
     }
 
-    void Start()
-    {
-        loadScene = ExcecuteScene;
-    }
-
-    public void ExcecuteScene(int scene)
+    public void ExecuteScene(int scene)
     {
         // Clear characters in current scene to make room for characters in next scene.
         CharacterLoader charaLoader = FindObjectOfType<CharacterLoader>().GetComponent<CharacterLoader>();
         charaLoader.PurgeCharacters();  // Move this to Character Loader.
 
+
         // Load scene from Game Manager.
-        FindObjectOfType<GameManager>().LoadSceneSequence(scene);
+        FindObjectOfType<GameManager>().LoadSceneSequence(sceneIndex[scene]);
     }
 }

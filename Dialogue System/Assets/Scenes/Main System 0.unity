@@ -211,7 +211,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 122094353}
         m_TargetAssemblyTypeName: ChoiceMaker, Assembly-CSharp
-        m_MethodName: Choose
+        m_MethodName: MakeChoice
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -638,6 +638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596306627}
   - component: {fileID: 596306626}
+  - component: {fileID: 596306628}
   m_Layer: 0
   m_Name: Dialogue Manager
   m_TagString: Untagged
@@ -677,6 +678,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &596306628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596306625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e42bcf993cae6549ac542ebed383360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choices:
+  - {fileID: 122094348}
+  - {fileID: 1430591523}
+  - {fileID: 656283811}
+  choicesText:
+  - {fileID: 495529323}
+  - {fileID: 1851049608}
+  - {fileID: 528791111}
 --- !u!1 &651400043
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,7 +865,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 656283816}
         m_TargetAssemblyTypeName: ChoiceMaker, Assembly-CSharp
-        m_MethodName: Choose
+        m_MethodName: MakeChoice
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1672,7 +1693,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1430591528}
         m_TargetAssemblyTypeName: ChoiceMaker, Assembly-CSharp
-        m_MethodName: Choose
+        m_MethodName: MakeChoice
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

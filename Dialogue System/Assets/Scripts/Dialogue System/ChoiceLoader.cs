@@ -1,26 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChoiceLoader : MonoBehaviour
 {
-    private GameObject[] choices;           // Choices Button GameObject from Scene.
-    private GameObject[] choicesText;       // Choices text to be displayed on buttons.
-
-    private DialogueTrigger dialogueTrigger;
-
-    void Awake()
-    {
-        // Grab choices + choices text to be able to control.
-        choices = new GameObject[3];
-        choicesText = new GameObject[3];
-
-        for(int i = 0; i < 3; i++)
-        {
-            choices[i] = GameObject.Find("Choice " + i);
-            choicesText[i] = GameObject.Find("Text " + i);
-        }
-    }
+    public GameObject[] choices;           // Choices Button GameObject from Scene.
+    public Text[] choicesText;       // Choices text to be displayed on buttons.
 
     void Start()
     {
@@ -29,12 +15,15 @@ public class ChoiceLoader : MonoBehaviour
         {
             choices[i].SetActive(false);
         }
+    }
 
+    public void SetChoiceText(string[] choiceStrings)
+    {
         // Set Active available choices.
-        for (int i = 0; i < dialogueTrigger.Choices().Length; i++)
+        for (int i = 0; i < choiceStrings.Length; i++)
         {
             choices[i].SetActive(true);
-            choicesText[i].GetComponent<Text>().text = dialogueTrigger.Choices()[i];
+            choicesText[i].text = choiceStrings[i];
         }
     }
 }

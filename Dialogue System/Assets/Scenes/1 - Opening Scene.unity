@@ -134,8 +134,6 @@ GameObject:
   - component: {fileID: 260050846}
   - component: {fileID: 260050845}
   - component: {fileID: 260050847}
-  - component: {fileID: 260050844}
-  - component: {fileID: 260050843}
   m_Layer: 0
   m_Name: Convo 1
   m_TagString: Untagged
@@ -143,32 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &260050843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 260050841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635c41e1be53b8549b57cc96def41298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneIndex: 
---- !u!114 &260050844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 260050841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c71244a2160ec842a8d3811bdbbbf6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterAffinity: []
 --- !u!114 &260050845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,10 +154,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    speaker: 
-    expression: []
-    sentences: []
-    choices: []
+    speaker: Character 0
+    expression:
+    - Neutral
+    - Neutral
+    sentences:
+    - Scene 1, convo 1
+    choices:
+    - Go back to convo 1
+    - Go to convo 2
 --- !u!4 &260050846
 Transform:
   m_ObjectHideFlags: 0
@@ -213,7 +190,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96440f92a138f2478573b7c1fd82d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outcomes: []
+  outcomes:
+  - {fileID: 260050841}
+  - {fileID: 585041493}
+--- !u!1 &585041493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 585041496}
+  - component: {fileID: 585041495}
+  - component: {fileID: 585041494}
+  m_Layer: 0
+  m_Name: Convo 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &585041494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585041493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635c41e1be53b8549b57cc96def41298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneIndex: 0100000002000000
+--- !u!114 &585041495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585041493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271c74e33d1402f45b43b10d1ed41843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    speaker: Character 0
+    expression:
+    - Neutral
+    - Neutral
+    sentences:
+    - Scene 1, convo 2
+    choices:
+    - Go back to scene  1
+    - Go to scene 2
+--- !u!4 &585041496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585041493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1297077813
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f209f1bdd61314649b76f1087b3adb1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  convoInit: {fileID: 0}
+  convoInit: {fileID: 260050841}
 --- !u!114 &1297077817
 MonoBehaviour:
   m_ObjectHideFlags: 0

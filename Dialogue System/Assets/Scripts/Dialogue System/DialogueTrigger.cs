@@ -27,17 +27,36 @@ public class DialogueTrigger : MonoBehaviour
     {
         dialogue = convo.GetComponent<DialogueContent>().dialogue;      // Get components of the conversation.
 
+        // Check for next Convo OR Scene.
+        ConversationLoader convoLoader = convo.GetComponent<ConversationLoader>();
+        SceneLoader sceneLoader = convo.GetComponent<SceneLoader>();
+
+        if(convoLoader != null)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                GameObject.Find("Choice " + i).GetComponent<ChoiceMaker>().NextConvo();
+            }
+
+            convoLoader = null;
+        }
+        else if(sceneLoader != null)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                GameObject.Find("Choice " + i).GetComponent<ChoiceMaker>().NextScene();
+            }
+
+            sceneLoader =  null;
+        }
+
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);    // Start conversation text.
         charaManager.SetSpeaker(dialogue.speaker);                      // Set who is currently speaking.
         
+        // Set choices text.
+        FindObjectOfType<ChoiceLoader>().SetChoiceText(dialogue.choices);
+
         // Set expressions.
         charaManager.SetExpression(dialogue.expression);
-    }
-
-    public string[] Choices()
-    {
-        string[] choices;
-        choices = dialogue.choices;
-        return choices;
     }
 }
