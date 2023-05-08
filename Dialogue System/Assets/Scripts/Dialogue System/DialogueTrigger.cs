@@ -44,11 +44,11 @@ public class DialogueTrigger : MonoBehaviour
         {
             ChoiceController.executeChoice += convoLoader.ChooseConversation;
         }
-        else if(sceneLoader != null)
+        if(sceneLoader != null)
         {
             ChoiceController.executeChoice += sceneLoader.ExecuteScene;
         }
-        else if(affinityChanger != null)
+        if(affinityChanger != null)
         {
             ChoiceController.executeChoice += affinityChanger.UpdateAffinity;
         }

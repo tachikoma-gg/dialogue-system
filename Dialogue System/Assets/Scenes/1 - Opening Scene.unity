@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 260050846}
   - component: {fileID: 260050845}
   - component: {fileID: 260050847}
+  - component: {fileID: 260050848}
   m_Layer: 0
   m_Name: Convo 1
   m_TagString: Untagged
@@ -193,6 +194,21 @@ MonoBehaviour:
   outcomes:
   - {fileID: 260050841}
   - {fileID: 585041493}
+--- !u!114 &260050848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260050841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c71244a2160ec842a8d3811bdbbbf6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAffinity:
+  - Character 0_-999
+  - Character 0_+1
 --- !u!1 &585041493
 GameObject:
   m_ObjectHideFlags: 0
