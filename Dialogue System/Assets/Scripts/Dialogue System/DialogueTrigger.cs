@@ -5,17 +5,13 @@ using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public GameObject convoInit;            // First conversation of the Scene.
+    [SerializeField]
+    private GameObject convoInit;            // First conversation of the Scene.
     private Dialogue dialogue;              // Class containing dialogue content. DialogueContent is used to pass this information from the template to Trigger.
+    private GameObject currentConvo;        
 
     private CharacterManager charaManager;  // Class that loads in the characters.
     private CharacterLoader charaLoader;    // Contains all of the Characters.
-
-    void Awake()
-    {
-        // Load Managers
-        charaManager = GameObject.Find("Character Manager").GetComponent<CharacterManager>();
-    }
 
     void Start()
     {
@@ -26,37 +22,35 @@ public class DialogueTrigger : MonoBehaviour
     public void StartConvo (GameObject convo)
     {
         dialogue = convo.GetComponent<DialogueContent>().dialogue;      // Get components of the conversation.
+        ChoiceController.executeChoice = null;
 
-        // Check for next Convo OR Scene.
+        LoaderModuleCheck(convo);
+        
+        FindObjectOfType<ChoiceLoader>().DisableChoices();
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<CharacterManager>().SetSpeaker(dialogue.speaker);
+        FindObjectOfType<ChoiceLoader>().SetChoiceText(dialogue.choices);
+        FindObjectOfType<CharacterManager>().SetExpression(dialogue.expression);
+    }
+
+    // This is a temporary fix. Eventually, each module should be able to load themselves into the Choice Controller AND clear it before loading in.
+    private void LoaderModuleCheck(GameObject convo)
+    {
         ConversationLoader convoLoader = convo.GetComponent<ConversationLoader>();
         SceneLoader sceneLoader = convo.GetComponent<SceneLoader>();
+        AffinityChanger affinityChanger = convo.GetComponent<AffinityChanger>();
 
         if(convoLoader != null)
         {
-            for(int i = 0; i < 3; i++)
-            {
-                GameObject.Find("Choice " + i).GetComponent<ChoiceMaker>().NextConvo();
-            }
-
-            convoLoader = null;
+            ChoiceController.executeChoice += convoLoader.ChooseConversation;
         }
         else if(sceneLoader != null)
         {
-            for(int i = 0; i < 3; i++)
-            {
-                GameObject.Find("Choice " + i).GetComponent<ChoiceMaker>().NextScene();
-            }
-
-            sceneLoader =  null;
+            ChoiceController.executeChoice += sceneLoader.ExecuteScene;
         }
-
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);    // Start conversation text.
-        charaManager.SetSpeaker(dialogue.speaker);                      // Set who is currently speaking.
-        
-        // Set choices text.
-        FindObjectOfType<ChoiceLoader>().SetChoiceText(dialogue.choices);
-
-        // Set expressions.
-        charaManager.SetExpression(dialogue.expression);
+        else if(affinityChanger != null)
+        {
+            ChoiceController.executeChoice += affinityChanger.UpdateAffinity;
+        }
     }
 }

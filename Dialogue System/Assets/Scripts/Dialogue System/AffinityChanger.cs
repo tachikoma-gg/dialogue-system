@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class AffinityChanger : MonoBehaviour
 {
-    public string[] characterAffinity;
+    [SerializeField]    private string[] characterAffinity;
 
-    public void UpdateAffinity()
+    public void UpdateAffinity(int index)
     {
-        int index = 0;
         FindObjectOfType<GameManager>().UpdateAffinity(characterAffinity[index]);
     } 
 }

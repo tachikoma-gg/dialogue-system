@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PortraitLoader : MonoBehaviour
 {
-    public GameObject[] expressions;    // All available portraits for this character.
-    public bool faceLeft;               // Is the character facing left?
+    [SerializeField]    private GameObject[] expressions;    // All available portraits for this character.
 
     public void LoadExpression(string express)
     {

@@ -159,7 +159,7 @@ MonoBehaviour:
     - Dissapointed
     - Neutral
     sentences:
-    - Scene 1, convo 1
+    - Scene 2, convo 1
     choices:
     - Go back to scene 1
     - Go back to scene 2

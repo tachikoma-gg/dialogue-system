@@ -5,15 +5,24 @@ using UnityEngine.UI;
 
 public class ChoiceLoader : MonoBehaviour
 {
-    public GameObject[] choices;           // Choices Button GameObject from Scene.
-    public Text[] choicesText;       // Choices text to be displayed on buttons.
+    [SerializeField]    private GameObject[] choices;           // Choices Button GameObject from Scene.
+    [SerializeField]    private Text[] choicesText;       // Choices text to be displayed on buttons.
 
-    void Start()
+    public void DisableChoices()
     {
-        // Clear choices.
+        // Disable choices.
         for (int i = 0; i < choices.Length; i++)
         {
             choices[i].SetActive(false);
+        }
+    }
+
+    public void EnableChoies()
+    {
+        // Enable choices.
+        for (int i = 0; i < choices.Length; i++)
+        {
+            choices[i].SetActive(true);
         }
     }
 

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ConversationLoader : MonoBehaviour
 {
-    public GameObject[] outcomes;   // Convo Catalogs for conversations following choice.
+    [SerializeField]    private GameObject[] outcomes;   // Convo Catalogs for conversations following choice.
 
     public void ChooseConversation(int choice)
     {
-        DialogueTrigger dialogueTrigger = FindObjectOfType<DialogueTrigger>().GetComponent<DialogueTrigger>();
-        dialogueTrigger.StartConvo(outcomes[choice]);
+        FindObjectOfType<ChoiceLoader>().EnableChoies();
+        FindObjectOfType<DialogueTrigger>().StartConvo(outcomes[choice]);
     }
 }

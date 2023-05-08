@@ -5,15 +5,13 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;               // Object that displays the name of current speaker.
-    public Text dialogueText;           // Object that displays the dialogue text.
+    [SerializeField]    private Text nameText;               // Object that displays the name of current speaker.
+    [SerializeField]    private Text dialogueText;           // Object that displays the dialogue text.
+    [SerializeField]    private Animator animator;           // Aniamtes in the Text box.
+    [SerializeField]    private GameObject choices;          // Buttons to make choice. Only displays after last sentence group.
+    [SerializeField]    private GameObject next;             // Button to proceed in conversation.
 
-    public Animator animator;           // Aniamtes in the Text box.
-    
     private Queue<string> sentences;    // Sentence groups in the conversation.
-
-    public GameObject choices;          // Buttons to make choice. Only displays after last sentence group.
-    public GameObject next;             // Button to proceed in conversation.
 
     void Start()
     {

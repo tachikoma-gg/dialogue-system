@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class ConvoCatalog : MonoBehaviour
 {
-    public GameObject[] conversation;
-    public DialogueTrigger dialogueTrigger;
+    [SerializeField]    private GameObject[] conversation;
+    [SerializeField]    private DialogueTrigger dialogueTrigger;
 }
