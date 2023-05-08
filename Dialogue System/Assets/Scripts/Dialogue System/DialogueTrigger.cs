@@ -8,17 +8,12 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField]
     private GameObject convoInit;            // First conversation of the Scene.
     private Dialogue dialogue;              // Class containing dialogue content. DialogueContent is used to pass this information from the template to Trigger.
-    private GameObject currentConvo;        
-
-    private CharacterManager charaManager;  // Class that loads in the characters.
-    private CharacterLoader charaLoader;    // Contains all of the Characters.
 
     void Start()
     {
         StartConvo(convoInit);       // Set initial choices for conversation.
     }
 
-    // Display Correct number of choices, based on Dialogue content.
     public void StartConvo (GameObject convo)
     {
         dialogue = convo.GetComponent<DialogueContent>().dialogue;      // Get components of the conversation.
@@ -26,11 +21,12 @@ public class DialogueTrigger : MonoBehaviour
 
         LoaderModuleCheck(convo);
         
-        FindObjectOfType<ChoiceLoader>().DisableChoices();
+        // This looks janky. There has to be a better way.
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         FindObjectOfType<CharacterManager>().SetSpeaker(dialogue.speaker);
-        FindObjectOfType<ChoiceLoader>().SetChoiceText(dialogue.choices);
         FindObjectOfType<CharacterManager>().SetExpression(dialogue.expression);
+        FindObjectOfType<ChoiceLoader>().DisableChoices();
+        FindObjectOfType<ChoiceLoader>().SetChoiceText(dialogue.choices);
     }
 
     // This is a temporary fix. Eventually, each module should be able to load themselves into the Choice Controller AND clear it before loading in.
