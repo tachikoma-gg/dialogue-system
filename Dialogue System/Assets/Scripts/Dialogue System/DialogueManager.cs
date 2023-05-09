@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField]    private Text nameText;               // Object that displays the name of current speaker.
-    [SerializeField]    private Text dialogueText;           // Object that displays the dialogue text.
-    [SerializeField]    private Animator animator;           // Aniamtes in the Text box.
-    [SerializeField]    private GameObject choices;          // Buttons to make choice. Only displays after last sentence group.
-    [SerializeField]    private GameObject next;             // Button to proceed in conversation.
+    [SerializeField] private Text nameText, dialogueText;
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject choices, next;
 
-    private Queue<string> sentences;    // Sentence groups in the conversation.
+    private Queue<string> sentences;
 
     private void Awake()
     {
@@ -26,14 +24,11 @@ public class DialogueManager : MonoBehaviour
     // Load Conversation Set, display first sentence.
     public void StartDialogue (Dialogue dialogue)
     {
-        animator.SetBool("IsOpen", true);       // Display dialogue box.
-
-        choices.gameObject.SetActive(false);    // Hide choices buttons.
-        next.gameObject.SetActive(true);        // Show next button.
-
-        nameText.text = dialogue.speaker;          // Set speaker name.
-
-        sentences.Clear();                      // Clear sentences queue before loading in sentences.
+        animator.SetBool("IsOpen", true);       // Display dialogue box. OBSOLETE.
+        choices.gameObject.SetActive(false);    // Hide choices buttons. MOVE TO START CONVO DELEGATE
+        next.gameObject.SetActive(true);        // Show next button. MOVE TO START CONVO DELEGATE
+        nameText.text = dialogue.speaker;       // Set speaker name.
+        sentences.Clear();
 
         // Load in new sentence queue;
         foreach (string sentence in dialogue.sentences)
@@ -41,7 +36,7 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
-        DisplayNextSentence();                  // Display sentence.
+        DisplayNextSentence();
     }
 
     // Display next sentence + All other outcomes following sentence appearing.
@@ -54,7 +49,7 @@ public class DialogueManager : MonoBehaviour
         // If there are no more sentences in the queue, allow the player to make choices.
         if (sentences.Count == 0)
         {
-            ShowChoices();
+            ShowChoices(); // trigger end of convo delegate here.
             return;
         }
     }
@@ -70,7 +65,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // Hide next, show Choices.
+    // Hide next, show Choices. SUBSCRIBE TO END CONVO DELEGATE
     void ShowChoices()
     {
         choices.gameObject.SetActive(true);

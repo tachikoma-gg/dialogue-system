@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField]
-    private GameObject convoInit;           // First conversation of the Scene.
+    private GameObject convoInit;       // First conversation of the Scene.
     private GameObject convoActive;     // Active Conversation.
     private Dialogue dialogue;          // Class containing dialogue content. DialogueContent is used to pass this information from the template to Trigger.
     

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ChoiceLoader : MonoBehaviour
 {
-    [SerializeField]    private GameObject[] choices;           // Choices Button GameObject from Scene.
-    [SerializeField]    private Text[] choicesText;       // Choices text to be displayed on buttons.
+    [SerializeField] private GameObject[] choices;  // Choices Button GameObject from Scene.
+    [SerializeField] private Text[] choicesText;    // Choices text to be displayed on buttons.
 
     private void Awake()
     {
@@ -16,7 +16,6 @@ public class ChoiceLoader : MonoBehaviour
 
     public void DisableChoices(Dialogue dialogue)
     {
-        // Disable choices.
         for (int i = 0; i < choices.Length; i++)
         {
             choices[i].SetActive(false);
@@ -25,7 +24,6 @@ public class ChoiceLoader : MonoBehaviour
 
     public void EnableChoies()
     {
-        // Enable choices.
         for (int i = 0; i < choices.Length; i++)
         {
             choices[i].SetActive(true);
