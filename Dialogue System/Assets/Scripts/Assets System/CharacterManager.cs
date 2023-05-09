@@ -15,8 +15,15 @@ public class CharacterManager : MonoBehaviour
     // private string[] expression;            // Expressions?
     // Should dictionaries be used instead? How to access data from dictionaries?
 
-    public void SetSpeaker(string charaName)
+    private void Awake()
     {
+        DialogueTrigger.startConversation += SetSpeaker;
+        DialogueTrigger.startConversation += SetExpression;
+    }
+
+    public void SetSpeaker(Dialogue dialogue)
+    {
+        string charaName = dialogue.speaker;
         // Set private array size for expressions method.
         // charaExpress = new string[charaActive.Length];
         // expression = new string[charaActive.Length];
@@ -33,8 +40,10 @@ public class CharacterManager : MonoBehaviour
     }
 
     // Set active expression for each character. Trigger this from Dialogue Trigger
-    public void SetExpression(string[] express)
+    public void SetExpression(Dialogue dialogue)
     {
+        string[] expression = dialogue.expression;
+
         // Parse out each string into Active Character and expression.
         for(int i = 0; i < charaActive.Length; i++)
         {
@@ -49,7 +58,7 @@ public class CharacterManager : MonoBehaviour
             // Compare character with character name list.
             // If match, set expression based in i.
 
-            charaPort[i].LoadExpression(express[i]);
+            charaPort[i].LoadExpression(expression[i]);
         }
     }
 }

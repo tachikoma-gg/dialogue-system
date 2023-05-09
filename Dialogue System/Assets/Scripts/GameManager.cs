@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
+        /*
         if(nextScene == 0)
         {
             LoadScene(1);
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
         {
             LoadScene(nextScene);
         }
+        */
     }
     #endregion
 

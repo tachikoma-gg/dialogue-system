@@ -6,47 +6,34 @@ using UnityEngine.UI;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField]
-    private GameObject convoInit;            // First conversation of the Scene.
-    private Dialogue dialogue;              // Class containing dialogue content. DialogueContent is used to pass this information from the template to Trigger.
-
+    private GameObject convoInit;           // First conversation of the Scene.
+    private GameObject convoActive;     // Active Conversation.
+    private Dialogue dialogue;          // Class containing dialogue content. DialogueContent is used to pass this information from the template to Trigger.
+    
     void Start()
     {
         StartConvo(convoInit);       // Set initial choices for conversation.
     }
 
-    public void StartConvo (GameObject convo)
-    {
-        dialogue = convo.GetComponent<DialogueContent>().dialogue;      // Get components of the conversation.
-        ChoiceController.executeChoice = null;
+    public delegate void StartConversation(Dialogue dialogue);
+    public static StartConversation startConversation;
 
-        LoaderModuleCheck(convo);
-        
-        // This looks janky. There has to be a better way.
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        FindObjectOfType<CharacterManager>().SetSpeaker(dialogue.speaker);
-        FindObjectOfType<CharacterManager>().SetExpression(dialogue.expression);
-        FindObjectOfType<ChoiceLoader>().DisableChoices();
-        FindObjectOfType<ChoiceLoader>().SetChoiceText(dialogue.choices);
+    public delegate void EndConversation();
+    public static EndConversation endConversation;
+
+    private void Awake()
+    {
+        ChoiceController.executeChoice += DestroyActiveConversation;
     }
 
-    // This is a temporary fix. Eventually, each module should be able to load themselves into the Choice Controller AND clear it before loading in.
-    private void LoaderModuleCheck(GameObject convo)
+    public void StartConvo (GameObject convo)
     {
-        ConversationLoader convoLoader = convo.GetComponent<ConversationLoader>();
-        SceneLoader sceneLoader = convo.GetComponent<SceneLoader>();
-        AffinityChanger affinityChanger = convo.GetComponent<AffinityChanger>();
+        convoActive = Instantiate(convo);
+        startConversation?.Invoke(convoActive.GetComponent<DialogueContent>().dialogue);
+    }
 
-        if(convoLoader != null)
-        {
-            ChoiceController.executeChoice += convoLoader.ChooseConversation;
-        }
-        if(sceneLoader != null)
-        {
-            ChoiceController.executeChoice += sceneLoader.ExecuteScene;
-        }
-        if(affinityChanger != null)
-        {
-            ChoiceController.executeChoice += affinityChanger.UpdateAffinity;
-        }
+    private void DestroyActiveConversation(int choice)
+    {
+        Destroy(convoActive);
     }
 }

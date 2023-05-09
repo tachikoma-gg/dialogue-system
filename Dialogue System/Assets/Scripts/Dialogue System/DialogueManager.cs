@@ -13,7 +13,12 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;    // Sentence groups in the conversation.
 
-    void Start()
+    private void Awake()
+    {
+        DialogueTrigger.startConversation += StartDialogue;
+    }
+
+    private void Start()
     {
         sentences = new Queue<string>();
     }

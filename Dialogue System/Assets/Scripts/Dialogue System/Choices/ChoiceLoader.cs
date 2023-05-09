@@ -8,7 +8,13 @@ public class ChoiceLoader : MonoBehaviour
     [SerializeField]    private GameObject[] choices;           // Choices Button GameObject from Scene.
     [SerializeField]    private Text[] choicesText;       // Choices text to be displayed on buttons.
 
-    public void DisableChoices()
+    private void Awake()
+    {
+        DialogueTrigger.startConversation += DisableChoices;
+        DialogueTrigger.startConversation += SetChoiceText;
+    }
+
+    public void DisableChoices(Dialogue dialogue)
     {
         // Disable choices.
         for (int i = 0; i < choices.Length; i++)
@@ -26,8 +32,10 @@ public class ChoiceLoader : MonoBehaviour
         }
     }
 
-    public void SetChoiceText(string[] choiceStrings)
+    public void SetChoiceText(Dialogue dialogue)
     {
+        string[] choiceStrings = dialogue.choices;
+
         // Set Active available choices.
         for (int i = 0; i < choiceStrings.Length; i++)
         {

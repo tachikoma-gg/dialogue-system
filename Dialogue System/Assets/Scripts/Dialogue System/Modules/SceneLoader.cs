@@ -7,6 +7,12 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField]    private int[] sceneIndex;
 
+    private void Awake()
+    {
+        ChoiceController.executeChoice += ExecuteScene;
+        DialogueTrigger.endConversation += ClearScene;
+    }
+
     public void ExecuteScene(int scene)
     {
         FindObjectOfType<ChoiceLoader>().EnableChoies();
@@ -16,5 +22,11 @@ public class SceneLoader : MonoBehaviour
 
         // Load scene from Game Manager.
         FindObjectOfType<GameManager>().LoadSceneSequence(sceneIndex[scene]);
+    }
+
+    public void ClearScene()
+    {
+        ChoiceController.executeChoice -= ExecuteScene;
+        DialogueTrigger.endConversation -= ClearScene;
     }
 }

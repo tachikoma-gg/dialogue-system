@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1563711247644126984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563711247644126991}
+  - component: {fileID: 1563711247644127027}
+  - component: {fileID: 1563711247644126988}
+  - component: {fileID: 1563711247644126990}
+  - component: {fileID: 1563711247644127025}
+  - component: {fileID: 1563711247644127024}
+  m_Layer: 0
+  m_Name: Convo 1.1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563711247644126991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563711247644126984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1563711247644127027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563711247644126984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21e4122ba6a1164394c6575a75f5569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character:
+  - {fileID: 4352964288934015592, guid: c241dcb17284c9d489c9169eddc111db, type: 3}
+  - {fileID: 4352964288934015592, guid: 6d000078e3b9d4340886a30802821b7c, type: 3}
+--- !u!114 &1563711247644126988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563711247644126984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271c74e33d1402f45b43b10d1ed41843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    speaker: Character 0
+    expression:
+    - Neutral
+    - Neutral
+    sentences:
+    - Scene 1, convo 1, Sentence 1
+    - Scene 1, convo 1, Sentence 2
+    choices:
+    - Go back to convo 1
+    - Go to convo 2
+--- !u!114 &1563711247644126990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563711247644126984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96440f92a138f2478573b7c1fd82d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outcomes:
+  - {fileID: 1563711247644126984}
+  - {fileID: 5189356340823709625, guid: b699198579f693747a44db847f466e65, type: 3}
+--- !u!114 &1563711247644127025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563711247644126984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c71244a2160ec842a8d3811bdbbbf6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAffinity:
+  - Character 0_-999
+  - Character 0_+1
+--- !u!114 &1563711247644127024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563711247644126984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2591e4a2f3728e47bbb76fed3a9a594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLocation: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
