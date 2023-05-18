@@ -72,8 +72,8 @@ MonoBehaviour:
     - Scene 1, convo 1, Sentence 1
     - Scene 1, convo 1, Sentence 2
     choices:
-    - Go back to convo 1
     - Go to convo 2
+    - Go to convo 3
 --- !u!114 &1563711247644126990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outcomes:
-  - {fileID: 1563711247644126984}
   - {fileID: 5189356340823709625, guid: b699198579f693747a44db847f466e65, type: 3}
+  - {fileID: 5189356340823709625, guid: aefaeafb568b0524887086bf4fd3a1cb, type: 3}
 --- !u!114 &1563711247644127025
 MonoBehaviour:
   m_ObjectHideFlags: 0

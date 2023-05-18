@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ConversationLoader : MonoBehaviour
 {
-    [SerializeField]    private GameObject[] outcomes;   // Convo Catalogs for conversations following choice.
+    [SerializeField] private GameObject[] outcomes;   // Convo Catalogs for conversations following choice.
 
     private void Awake()
     {

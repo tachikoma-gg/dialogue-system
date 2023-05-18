@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239995742566269249}
   - component: {fileID: 1239995742566269250}
+  - component: {fileID: 3509739083187666549}
   m_Layer: 0
   m_Name: Convo 2.1
   m_TagString: Untagged
@@ -54,3 +55,18 @@ MonoBehaviour:
     choices:
     - Go back to scene 1
     - Go back to scene 2
+--- !u!114 &3509739083187666549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239995742566269251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96440f92a138f2478573b7c1fd82d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outcomes:
+  - {fileID: 1563711247644126984, guid: b5f5f7e4a6964914ea735a1f05862d34, type: 3}
+  - {fileID: 1239995742566269251}

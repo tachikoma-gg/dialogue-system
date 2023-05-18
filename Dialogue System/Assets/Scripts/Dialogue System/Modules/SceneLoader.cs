@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField]    private int[] sceneIndex;
+    [SerializeField] private int[] sceneIndex;
 
     private void Awake()
     {
